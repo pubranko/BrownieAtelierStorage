@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 #     print(f'==={_.name}')
 
 model = ControllerBlobModel()
+model.delete_blob()
 model.upload_blob()
-# model.delete_blob()
 for _ in model.blob_info_lists():
     print(f'==={_.name}')
