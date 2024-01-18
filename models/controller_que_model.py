@@ -1,5 +1,5 @@
 import logging
-from typing import Final
+from typing import Final, Union
 
 from azure.storage.queue import QueueServiceClient, QueueClient, QueueMessage
 from azure.core.paging import ItemPaged
@@ -18,7 +18,7 @@ class ControllerQueModel():
         '''
         self.__queue_client = QueueClient.from_connection_string(
              conn_str=settings.AZURE_STORAGE__CONNECTION_STRING,
-             queue_name=settings.AZURE_STORAGE_QUE__NAME)
+             queue_name=settings.AZURE_STORAGE__QUE_NAME)
 
     def create_queue(self):
         '''キューを作成する。'''
@@ -45,7 +45,7 @@ class ControllerQueModel():
         '''
         self.__queue_client.delete_message(message)
 
-    def receive_message(self) -> QueueMessage:
+    def receive_message(self) -> Union[QueueMessage,None]:
         '''
         キューを先頭から１件取得する。
         '''

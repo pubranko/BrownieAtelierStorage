@@ -14,8 +14,8 @@ class ControllerBlobModel():
     __container_client: ContainerClient
     __blob_client: BlobClient
     timestamp:Final[str] = datetime.now().isoformat()
-    __blob_container_name = settings.AZURE_STORAGE_BLOB__CONTAINER_NAME
-    __blob_file_name = settings.AZURE_STORAGE_BLOB__FILE_NAME
+    __blob_container_name = settings.AZURE_STORAGE__BLOB_CONTAINER_NAME
+    __blob_file_name = settings.AZURE_STORAGE__BLOB_FILE_NAME
 
 
     def __init__(self):
