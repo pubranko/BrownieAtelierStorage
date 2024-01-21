@@ -9,7 +9,7 @@ AZURE_STORAGE__ACCOUNT_NAME: str = str(
 AZURE_STORAGE__ACCOUNT_KEY: str = str(
     config('AZURE_STORAGE__ACCOUNT_KEY'))
 AZURE_STORAGE__CONNECTION_STRING: str = str(
-    config('AZURE_STORAGE__CONNECTION_STRING', default=''))
+    config('AZURE_STORAGE__CONNECTION_STRING'))
 AZURE_STORAGE__FILE_SHARE: str = str(
     config('AZURE_STORAGE__FILE_SHARE', default='controller'))
 AZURE_STORAGE__QUE_NAME: str = str(
