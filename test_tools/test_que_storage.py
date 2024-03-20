@@ -2,6 +2,7 @@
 import logging
 from BrownieAtelierStorage import settings
 from BrownieAtelierStorage.models.controller_que_model import ControllerQueModel
+
 logging.basicConfig(level=logging.INFO)
 
 model = ControllerQueModel()
@@ -18,4 +19,4 @@ model.peek_message(10)
 
 b = model.receive_messages()
 for c in b:
-    print(f'内容確認: {c.id} / {c.content}')
+    print(f"内容確認: {c.id} / {c.content}")
