@@ -3,6 +3,7 @@ from typing import Final, Union
 
 from azure.core.paging import ItemPaged
 from azure.storage.queue import QueueClient, QueueMessage, QueueServiceClient
+
 from BrownieAtelierStorage import settings
 
 
