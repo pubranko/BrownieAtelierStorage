@@ -1,8 +1,8 @@
 import logging
 from typing import Final, Union
 
-from azure.storage.queue import QueueServiceClient, QueueClient, QueueMessage
 from azure.core.paging import ItemPaged
+from azure.storage.queue import QueueClient, QueueMessage, QueueServiceClient
 from BrownieAtelierStorage import settings
 
 

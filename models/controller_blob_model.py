@@ -1,16 +1,11 @@
 import logging
 from datetime import datetime
 from typing import Final
-from azure.storage.blob import (
-    BlobServiceClient,
-    BlobClient,
-    ContainerClient,
-    ContainerProperties,
-    BlobProperties,
-    StorageStreamDownloader,
-    ContentSettings,
-)
+
 from azure.core.paging import ItemPaged
+from azure.storage.blob import (BlobClient, BlobProperties, BlobServiceClient,
+                                ContainerClient, ContainerProperties,
+                                ContentSettings, StorageStreamDownloader)
 from BrownieAtelierStorage import settings
 
 

@@ -1,4 +1,4 @@
-from decouple import config, AutoConfig
+from decouple import AutoConfig, config
 
 # .envファイルが存在するパスを指定。実行時のカレントディレクトリに.envを配置している場合、以下の設定不要。
 # config = AutoConfig(search_path="./shared")
