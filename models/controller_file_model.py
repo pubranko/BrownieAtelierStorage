@@ -56,5 +56,11 @@ class ControllerFileModel:
         self.__upload(self.OFF)
 
     def mode_check(self) -> str:
-        self.__download()
-        return self.__download_flag
+        
+        if self.__file_client.exists():
+            # 初回限定：まだファイルシェア(controller)にファイル(mongo_mode)が作成されていない場合、フラグOFFとする。
+            return self.OFF
+        else:
+            # 
+            self.__download()
+            return self.__download_flag
