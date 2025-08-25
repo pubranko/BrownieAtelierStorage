@@ -32,10 +32,10 @@ class ControllerFileModel:
             self.__file_client.upload_file(flag)
 
         except ResourceExistsError as ex:
-            logging.error(f"ResourceExistsError: {ex.message}")
+            logging.exception(f"ResourceExistsError: {ex.message}")
 
         except ResourceNotFoundError as ex:
-            logging.error(f"ResourceNotFoundError: {ex.message}")
+            logging.exception(f"ResourceNotFoundError: {ex.message}")
 
     def __download(self):
         """ファイルをダウンロードする"""
@@ -47,7 +47,7 @@ class ControllerFileModel:
             self.__download_flag = str(stream.content_as_text())
 
         except ResourceNotFoundError as ex:
-            logging.error(f"ResourceNotFoundError: {ex.message}")
+            logging.exception(f"ResourceNotFoundError: {ex.message}")
 
     def manual_mode_on(self):
         self.__upload(self.ON)
