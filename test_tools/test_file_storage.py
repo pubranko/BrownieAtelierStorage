@@ -2,8 +2,7 @@
 import logging
 
 from BrownieAtelierStorage import settings
-from BrownieAtelierStorage.models.controller_file_model import \
-    ControllerFileModel
+from BrownieAtelierStorage.models.controller_file_model import ControllerFileModel
 
 logging.basicConfig(level=logging.INFO)
 

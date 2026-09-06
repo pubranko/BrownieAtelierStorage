@@ -36,14 +36,10 @@ class ControllerQueModel:
 
     def peek_message(self, max_messages: int):
         """キューに格納されているメッセージを指定件数分取得する。"""
-        peeked_messages: list[QueueMessage] = self.__queue_client.peek_messages(
-            max_messages=max_messages
-        )
+        peeked_messages: list[QueueMessage] = self.__queue_client.peek_messages(max_messages=max_messages)
 
         for peeked_message in peeked_messages:
-            logging.info(
-                f"Message ID/Content: {peeked_message.id} / {str(peeked_message.content)}"
-            )
+            logging.info(f"Message ID/Content: {peeked_message.id} / {str(peeked_message.content)}")
 
     def delete_message(self, message: QueueMessage):
         """

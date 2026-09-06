@@ -3,9 +3,15 @@ from datetime import datetime
 from typing import Final
 
 from azure.core.paging import ItemPaged
-from azure.storage.blob import (BlobClient, BlobProperties, BlobServiceClient,
-                                ContainerClient, ContainerProperties,
-                                ContentSettings, StorageStreamDownloader)
+from azure.storage.blob import (
+    BlobClient,
+    BlobProperties,
+    BlobServiceClient,
+    ContainerClient,
+    ContainerProperties,
+    ContentSettings,
+    StorageStreamDownloader,
+)
 
 from BrownieAtelierStorage import settings
 
@@ -34,13 +40,9 @@ class ControllerBlobModel:
             conn_str=settings.AZURE_STORAGE__CONNECTION_STRING
         )
 
-        if self.__blob_container_name not in [
-            _.name for _ in self.container_info_lists()
-        ]:
+        if self.__blob_container_name not in [_.name for _ in self.container_info_lists()]:
             self.create_container()
-        self.__container_client = self.__blob_service_client.get_container_client(
-            container=self.__blob_container_name
-        )
+        self.__container_client = self.__blob_service_client.get_container_client(container=self.__blob_container_name)
 
         self.__blob_client = self.__blob_service_client.get_blob_client(
             container=self.__blob_container_name, blob=self.__blob_file_name
@@ -89,6 +91,4 @@ class ControllerBlobModel:
         if self.__blob_file_name in [_.name for _ in self.blob_info_lists()]:
             self.__blob_client.delete_blob()
         else:
-            logging.warning(
-                f"削除対象のBLOBがないため削除処理を中止しました。 BLOB = {self.__blob_file_name}"
-            )
+            logging.warning(f"削除対象のBLOBがないため削除処理を中止しました。 BLOB = {self.__blob_file_name}")
