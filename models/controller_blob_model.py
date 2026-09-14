@@ -9,10 +9,8 @@ from azure.storage.blob import (
     BlobServiceClient,
     ContainerClient,
     ContainerProperties,
-    ContentSettings,
     StorageStreamDownloader,
 )
-
 from BrownieAtelierStorage import settings
 
 

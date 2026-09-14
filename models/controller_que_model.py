@@ -1,9 +1,7 @@
 import logging
-from typing import Final, Union
 
 from azure.core.paging import ItemPaged
-from azure.storage.queue import QueueClient, QueueMessage, QueueServiceClient
-
+from azure.storage.queue import QueueClient, QueueMessage
 from BrownieAtelierStorage import settings
 
 
@@ -47,7 +45,7 @@ class ControllerQueModel:
         """
         self.__queue_client.delete_message(message)
 
-    def receive_message(self) -> Union[QueueMessage, None]:
+    def receive_message(self) -> QueueMessage | None:
         """
         キューを先頭から１件取得する。
         """

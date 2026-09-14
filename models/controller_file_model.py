@@ -3,7 +3,6 @@ from typing import Final
 
 from azure.core.exceptions import ResourceExistsError, ResourceNotFoundError
 from azure.storage.fileshare import ShareFileClient
-
 from BrownieAtelierStorage import settings
 
 
