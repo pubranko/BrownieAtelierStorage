@@ -23,8 +23,6 @@ class ControllerFileModel:
     def __upload(self, flag):
         """ファイルをアップロードする"""
         try:
-            self.__file_client.share_name
-            self.__file_client.file_name
             logging.info(f"ファイルアップロード: {self.__file_client.share_name} / {self.__file_client.file_name}")
             self.__file_client.upload_file(flag)
 
