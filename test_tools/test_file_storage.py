@@ -1,9 +1,7 @@
 # 実際にazureに接続しデータの読み書きができるかテストを行うツール。
 import logging
 
-from BrownieAtelierStorage import settings
-from BrownieAtelierStorage.models.controller_file_model import \
-    ControllerFileModel
+from BrownieAtelierStorage.models.controller_file_model import ControllerFileModel
 
 logging.basicConfig(level=logging.INFO)
 

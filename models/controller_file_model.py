@@ -3,7 +3,6 @@ from typing import Final
 
 from azure.core.exceptions import ResourceExistsError, ResourceNotFoundError
 from azure.storage.fileshare import ShareFileClient
-
 from BrownieAtelierStorage import settings
 
 
@@ -24,11 +23,7 @@ class ControllerFileModel:
     def __upload(self, flag):
         """ファイルをアップロードする"""
         try:
-            self.__file_client.share_name
-            self.__file_client.file_name
-            logging.info(
-                f"ファイルアップロード: {self.__file_client.share_name} / {self.__file_client.file_name}"
-            )
+            logging.info(f"ファイルアップロード: {self.__file_client.share_name} / {self.__file_client.file_name}")
             self.__file_client.upload_file(flag)
 
         except ResourceExistsError as ex:
@@ -41,9 +36,7 @@ class ControllerFileModel:
         """ファイルをダウンロードする"""
         try:
             stream = self.__file_client.download_file()
-            logging.info(
-                f"ファイルダウンロード: {self.__file_client.share_name} / {self.__file_client.file_name}"
-            )
+            logging.info(f"ファイルダウンロード: {self.__file_client.share_name} / {self.__file_client.file_name}")
             self.__download_flag = str(stream.content_as_text())
 
         except ResourceNotFoundError as ex:
@@ -56,11 +49,11 @@ class ControllerFileModel:
         self.__upload(self.OFF)
 
     def mode_check(self) -> str:
-        
+
         if self.__file_client.exists():
             # 初回限定：まだファイルシェア(controller)にファイル(mongo_mode)が作成されていない場合、フラグOFFとする。
             return self.OFF
         else:
-            # 
+            #
             self.__download()
             return self.__download_flag
